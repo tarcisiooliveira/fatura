@@ -1,0 +1,15 @@
+instalando dependencia ex_doc e gerando documentação do projeto
+:ex_doc, " 0.19.0"
+mix deps.get
+mix doc
+
+gerando documentação html
+instalou dependencias e criou documntação
+proxima parte, testes
+=====
+
+a documentaçção já serve como teste
+bash: mix docs - gera a documentação
+bash: recompile - paracompilar o código e conseguir usar junto com o "iex -S mix"
+bash: mix format enderecoArquivo
+===============
