@@ -16,11 +16,14 @@ defmodule Fatura do
   @doc """
     Ao receber `fatura` retorna um array de faturas
       ## Examples
-        iex> Fatura.criar_fatura()
+        iex> Fatura.criar_fatura(["Telefone", "Luz", "Agua "])
         ["Telefone", "Luz", "Agua "]
+
+        iex> Fatura.criar_fatura("bola")
+        "bola"  
   """
-  def criar_fatura() do
-    ["Telefone", "Luz", "Agua "]
+  def criar_fatura(var) do
+    var
   end
 
   @doc """
