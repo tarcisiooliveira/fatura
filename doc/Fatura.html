@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.19.3">
     <title>Fatura — fatura v0.1.0</title>
     <link rel="stylesheet" href="dist/html-399e30b9b028e3059575.css" />
-    <script src="dist/sidebar_items-6d126cbab9.js"></script>
+    <script src="dist/sidebar_items-2aa54a9021.js"></script>
     <script async src="dist/html-399e30b9b028e3059575.js"></script>
   </head>
   <body data-type="modules">
@@ -78,12 +78,21 @@ Fatura      </h1>
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#criar_fatura/1">criar_fatura(var)</a>
+    <a href="#criar_fatura/1">criar_fatura(fatura)</a>
   </div>
     <div class="summary-synopsis"><p>Ao receber <code class="inline">fatura</code> retorna um array de faturas</p>
 <pre><code class="nohighlight makeup elixir"><span class="c1">## Examples</span><span class="w">
-  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">criar_fatura</span><span class="p" data-group-id="8102967924-1">(</span><span class="p" data-group-id="8102967924-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua &quot;</span><span class="p" data-group-id="8102967924-2">]</span><span class="p" data-group-id="8102967924-1">)</span><span class="w">
-  </span><span class="p" data-group-id="8102967924-3">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua &quot;</span><span class="p" data-group-id="8102967924-3">]</span></code></pre>
+  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">criar_fatura</span><span class="p" data-group-id="7662057950-1">(</span><span class="p" data-group-id="7662057950-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="7662057950-2">]</span><span class="p" data-group-id="7662057950-1">)</span><span class="w">
+  </span><span class="p" data-group-id="7662057950-3">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="7662057950-3">]</span></code></pre>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#criar_faturas/2">criar_faturas(faturas, vencimentos)</a>
+  </div>
+    <div class="summary-synopsis"><p>A função <code class="inline">criar_faturas</code> recebe duas listas de faturas e vencimentos e retorna 
+  uma estrutura de Fatura.Conta</p>
+<pre><code class="nohighlight makeup elixir"><span class="c1">## Examples</span></code></pre>
 </div>
 </div>
 <div class="summary-row">
@@ -99,8 +108,21 @@ Fatura      </h1>
   </div>
     <div class="summary-synopsis"><p>Retorna a frase de boas vindas para o usuário</p>
 <pre><code class="nohighlight makeup elixir"><span class="c1">## Examples</span><span class="w">
-  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">hello</span><span class="p" data-group-id="7295026200-1">(</span><span class="p" data-group-id="7295026200-1">)</span><span class="w">
+  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">hello</span><span class="p" data-group-id="1671790721-1">(</span><span class="p" data-group-id="1671790721-1">)</span><span class="w">
   </span><span class="s">&quot;Bem Vindo Usuario&quot;</span></code></pre>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#loadfile/1">loadfile(filename)</a>
+  </div>
+    <div class="summary-synopsis"><p>Quando encontrar uma fatura</p>
+<pre><code class="nohighlight makeup elixir"><span class="w">  </span><span class="c1">## Examples</span><span class="w">
+    </span><span class="gp unselectable">iex&gt; </span><span class="w"> </span><span class="n">arquivo</span><span class="o">=</span><span class="nc">Fatura</span><span class="o">.</span><span class="n">criar_fatura</span><span class="p" data-group-id="2877005421-1">(</span><span class="p" data-group-id="2877005421-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="2877005421-2">]</span><span class="p" data-group-id="2877005421-1">)</span><span class="w">
+    </span><span class="gp unselectable">iex&gt; </span><span class="w"> </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">save</span><span class="p" data-group-id="2877005421-3">(</span><span class="s">&quot;bill_to_pay&quot;</span><span class="p">,</span><span class="n">arquivo</span><span class="p" data-group-id="2877005421-3">)</span><span class="w">
+    </span><span class="ss">:ok</span><span class="w">
+    </span><span class="gp unselectable">iex&gt; </span><span class="w"> </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">loadfile</span><span class="p" data-group-id="2877005421-4">(</span><span class="s">&quot;bill_to_pay&quot;</span><span class="p" data-group-id="2877005421-4">)</span><span class="w">
+    </span><span class="p" data-group-id="2877005421-5">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="2877005421-5">]</span></code></pre>
 </div>
 </div>
 <div class="summary-row">
@@ -109,8 +131,19 @@ Fatura      </h1>
   </div>
     <div class="summary-synopsis"><p>Ao receber uma lista de faturas, entrega ordenada.</p>
 <pre><code class="nohighlight makeup elixir"><span class="c1">## Examples</span><span class="w">
-  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">ordenar_fatura</span><span class="p" data-group-id="6364189904-1">(</span><span class="p" data-group-id="6364189904-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="6364189904-2">]</span><span class="p" data-group-id="6364189904-1">)</span><span class="w">
-  </span><span class="p" data-group-id="6364189904-3">[</span><span class="s">&quot;Agua&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Telefone&quot;</span><span class="p" data-group-id="6364189904-3">]</span></code></pre>
+  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">ordenar_fatura</span><span class="p" data-group-id="7003398633-1">(</span><span class="p" data-group-id="7003398633-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="7003398633-2">]</span><span class="p" data-group-id="7003398633-1">)</span><span class="w">
+  </span><span class="p" data-group-id="7003398633-3">[</span><span class="s">&quot;Agua&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Telefone&quot;</span><span class="p" data-group-id="7003398633-3">]</span></code></pre>
+</div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#save/2">save(filename, faturas)</a>
+  </div>
+    <div class="summary-synopsis"><p>Exemplo de criação de arquivo com uma lista dentro</p>
+<pre><code class="nohighlight makeup elixir"><span class="c1">## Examples</span><span class="w">
+  </span><span class="gp unselectable">iex&gt; </span><span class="n">arquivo</span><span class="o">=</span><span class="nc">Fatura</span><span class="o">.</span><span class="n">criar_fatura</span><span class="p" data-group-id="3709133116-1">(</span><span class="p" data-group-id="3709133116-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="3709133116-2">]</span><span class="p" data-group-id="3709133116-1">)</span><span class="w">
+  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">save</span><span class="p" data-group-id="3709133116-3">(</span><span class="s">&quot;bill_to_pay&quot;</span><span class="p">,</span><span class="n">arquivo</span><span class="p" data-group-id="3709133116-3">)</span><span class="w">
+  </span><span class="ss">:ok</span></code></pre>
 </div>
 </div>
   </div>
@@ -130,16 +163,30 @@ Functions          </h1>
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">criar_fatura(var)</span>
+    <h1 class="signature">criar_fatura(fatura)</span>
   </div>
   <section class="docstring">
 <p>  Ao receber <code class="inline">fatura</code> retorna um array de faturas</p>
 <pre><code class="nohighlight makeup elixir"><span class="c1">## Examples</span><span class="w">
-  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">criar_fatura</span><span class="p" data-group-id="0234047244-1">(</span><span class="p" data-group-id="0234047244-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua &quot;</span><span class="p" data-group-id="0234047244-2">]</span><span class="p" data-group-id="0234047244-1">)</span><span class="w">
-  </span><span class="p" data-group-id="0234047244-3">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua &quot;</span><span class="p" data-group-id="0234047244-3">]</span><span class="w">
+  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">criar_fatura</span><span class="p" data-group-id="0687476836-1">(</span><span class="p" data-group-id="0687476836-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="0687476836-2">]</span><span class="p" data-group-id="0687476836-1">)</span><span class="w">
+  </span><span class="p" data-group-id="0687476836-3">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="0687476836-3">]</span><span class="w">
 
-  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">criar_fatura</span><span class="p" data-group-id="0234047244-4">(</span><span class="s">&quot;bola&quot;</span><span class="p" data-group-id="0234047244-4">)</span><span class="w">
+  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">criar_fatura</span><span class="p" data-group-id="0687476836-4">(</span><span class="s">&quot;bola&quot;</span><span class="p" data-group-id="0687476836-4">)</span><span class="w">
   </span><span class="s">&quot;bola&quot;</span><span class="w">  </span></code></pre>
+  </section>
+</section>
+<section class="detail" id="criar_faturas/2">
+  <div class="detail-header">
+    <a href="#criar_faturas/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">criar_faturas(faturas, vencimentos)</span>
+  </div>
+  <section class="docstring">
+<p>  A função <code class="inline">criar_faturas</code> recebe duas listas de faturas e vencimentos e retorna 
+  uma estrutura de Fatura.Conta</p>
+<pre><code class="nohighlight makeup elixir"><span class="c1">## Examples</span></code></pre>
   </section>
 </section>
 <section class="detail" id="fatura_existe?/2">
@@ -152,12 +199,12 @@ Functions          </h1>
   </div>
   <section class="docstring">
 <p>  Procura sem existe uma <code class="inline">fatura</code> em uma lista de <code class="inline">faturas</code></p>
-<p>  ## Examples</p>
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">fatura_existe?</span><span class="p" data-group-id="3527903753-1">(</span><span class="p" data-group-id="3527903753-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="3527903753-2">]</span><span class="p">,</span><span class="s">&quot;Luz&quot;</span><span class="p" data-group-id="3527903753-1">)</span><span class="w">
-</span><span class="no">true</span><span class="w">
+<pre><code class="nohighlight makeup elixir"><span class="c1">## Examples</span><span class="w">
+  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">fatura_existe?</span><span class="p" data-group-id="9045565881-1">(</span><span class="p" data-group-id="9045565881-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="9045565881-2">]</span><span class="p">,</span><span class="s">&quot;Luz&quot;</span><span class="p" data-group-id="9045565881-1">)</span><span class="w">
+  </span><span class="no">true</span><span class="w">
 
-</span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">fatura_existe?</span><span class="p" data-group-id="3527903753-3">(</span><span class="p" data-group-id="3527903753-4">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="3527903753-4">]</span><span class="p">,</span><span class="s">&quot;internet&quot;</span><span class="p" data-group-id="3527903753-3">)</span><span class="w">
-</span><span class="no">false</span></code></pre>
+  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">fatura_existe?</span><span class="p" data-group-id="9045565881-3">(</span><span class="p" data-group-id="9045565881-4">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="9045565881-4">]</span><span class="p">,</span><span class="s">&quot;internet&quot;</span><span class="p" data-group-id="9045565881-3">)</span><span class="w">
+  </span><span class="no">false</span></code></pre>
   </section>
 </section>
 <section class="detail" id="hello/0">
@@ -171,8 +218,32 @@ Functions          </h1>
   <section class="docstring">
 <p>  Retorna a frase de boas vindas para o usuário</p>
 <pre><code class="nohighlight makeup elixir"><span class="c1">## Examples</span><span class="w">
-  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">hello</span><span class="p" data-group-id="1161167035-1">(</span><span class="p" data-group-id="1161167035-1">)</span><span class="w">
+  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">hello</span><span class="p" data-group-id="8243545795-1">(</span><span class="p" data-group-id="8243545795-1">)</span><span class="w">
   </span><span class="s">&quot;Bem Vindo Usuario&quot;</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="loadfile/1">
+  <div class="detail-header">
+    <a href="#loadfile/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">loadfile(filename)</span>
+  </div>
+  <section class="docstring">
+<pre><code class="nohighlight makeup elixir"><span class="nc">Quando</span><span class="w"> </span><span class="n">encontrar</span><span class="w"> </span><span class="n">uma</span><span class="w"> </span><span class="n">fatura</span><span class="w">
+  </span><span class="c1">## Examples</span><span class="w">
+    </span><span class="gp unselectable">iex&gt; </span><span class="w"> </span><span class="n">arquivo</span><span class="o">=</span><span class="nc">Fatura</span><span class="o">.</span><span class="n">criar_fatura</span><span class="p" data-group-id="4998455676-1">(</span><span class="p" data-group-id="4998455676-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="4998455676-2">]</span><span class="p" data-group-id="4998455676-1">)</span><span class="w">
+    </span><span class="gp unselectable">iex&gt; </span><span class="w"> </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">save</span><span class="p" data-group-id="4998455676-3">(</span><span class="s">&quot;bill_to_pay&quot;</span><span class="p">,</span><span class="n">arquivo</span><span class="p" data-group-id="4998455676-3">)</span><span class="w">
+    </span><span class="ss">:ok</span><span class="w">
+    </span><span class="gp unselectable">iex&gt; </span><span class="w"> </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">loadfile</span><span class="p" data-group-id="4998455676-4">(</span><span class="s">&quot;bill_to_pay&quot;</span><span class="p" data-group-id="4998455676-4">)</span><span class="w">
+    </span><span class="p" data-group-id="4998455676-5">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="4998455676-5">]</span><span class="w">
+
+    </span><span class="gp unselectable">iex&gt; </span><span class="w"> </span><span class="n">arquivo</span><span class="o">=</span><span class="nc">Fatura</span><span class="o">.</span><span class="n">criar_fatura</span><span class="p" data-group-id="4998455676-6">(</span><span class="p" data-group-id="4998455676-7">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="4998455676-7">]</span><span class="p" data-group-id="4998455676-6">)</span><span class="w">
+    </span><span class="gp unselectable">iex&gt; </span><span class="w"> </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">save</span><span class="p" data-group-id="4998455676-8">(</span><span class="s">&quot;bill_to_pay&quot;</span><span class="p">,</span><span class="n">arquivo</span><span class="p" data-group-id="4998455676-8">)</span><span class="w">
+    </span><span class="ss">:ok</span><span class="w">
+    </span><span class="gp unselectable">iex&gt; </span><span class="w"> </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">loadfile</span><span class="p" data-group-id="4998455676-9">(</span><span class="s">&quot;filenotexist&quot;</span><span class="p" data-group-id="4998455676-9">)</span><span class="w">
+    </span><span class="s">&quot;File no found&quot;</span></code></pre>
   </section>
 </section>
 <section class="detail" id="ordenar_fatura/1">
@@ -186,8 +257,24 @@ Functions          </h1>
   <section class="docstring">
 <p>  Ao receber uma lista de faturas, entrega ordenada.</p>
 <pre><code class="nohighlight makeup elixir"><span class="c1">## Examples</span><span class="w">
-  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">ordenar_fatura</span><span class="p" data-group-id="2000483385-1">(</span><span class="p" data-group-id="2000483385-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="2000483385-2">]</span><span class="p" data-group-id="2000483385-1">)</span><span class="w">
-  </span><span class="p" data-group-id="2000483385-3">[</span><span class="s">&quot;Agua&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Telefone&quot;</span><span class="p" data-group-id="2000483385-3">]</span></code></pre>
+  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">ordenar_fatura</span><span class="p" data-group-id="7181157017-1">(</span><span class="p" data-group-id="7181157017-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="7181157017-2">]</span><span class="p" data-group-id="7181157017-1">)</span><span class="w">
+  </span><span class="p" data-group-id="7181157017-3">[</span><span class="s">&quot;Agua&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Telefone&quot;</span><span class="p" data-group-id="7181157017-3">]</span></code></pre>
+  </section>
+</section>
+<section class="detail" id="save/2">
+  <div class="detail-header">
+    <a href="#save/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">save(filename, faturas)</span>
+  </div>
+  <section class="docstring">
+<p>  Exemplo de criação de arquivo com uma lista dentro</p>
+<pre><code class="nohighlight makeup elixir"><span class="c1">## Examples</span><span class="w">
+  </span><span class="gp unselectable">iex&gt; </span><span class="n">arquivo</span><span class="o">=</span><span class="nc">Fatura</span><span class="o">.</span><span class="n">criar_fatura</span><span class="p" data-group-id="7377859885-1">(</span><span class="p" data-group-id="7377859885-2">[</span><span class="s">&quot;Telefone&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Luz&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Agua&quot;</span><span class="p" data-group-id="7377859885-2">]</span><span class="p" data-group-id="7377859885-1">)</span><span class="w">
+  </span><span class="gp unselectable">iex&gt; </span><span class="nc">Fatura</span><span class="o">.</span><span class="n">save</span><span class="p" data-group-id="7377859885-3">(</span><span class="s">&quot;bill_to_pay&quot;</span><span class="p">,</span><span class="n">arquivo</span><span class="p" data-group-id="7377859885-3">)</span><span class="w">
+  </span><span class="ss">:ok</span></code></pre>
   </section>
 </section>
           </div>

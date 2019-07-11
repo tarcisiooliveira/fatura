@@ -13,3 +13,26 @@ bash: mix docs - gera a documentação
 bash: recompile - paracompilar o código e conseguir usar junto com o "iex -S mix"
 bash: mix format enderecoArquivo
 ===============
+
+Aula 17
+iex(9)> cores = %{cor1: "Azul", cor2: "Verde"}
+%{cor1: "Azul", cor2: "Verde"}
+iex(10)> cores.cor1
+"Azul"
+iex(11)> cores
+%{cor1: "Azul", cor2: "Verde"}
+iex(12)> cores = Map.put(cores, :cor3, "Marrom")
+%{cor1: "Azul", cor2: "Verde", cor3: "Marrom"}
+iex(13)> cores
+%{cor1: "Azul", cor2: "Verde", cor3: "Marrom"}
+iex(14)> %{cores | cor3: "Laranja"}
+%{cor1: "Azul", cor2: "Verde", cor3: "Laranja"}
+iex(15)> cores
+%{cor1: "Azul", cor2: "Verde", cor3: "Marrom"}
+iex(16)> cores[:cor3]
+"Marrom"
+iex(17)> Map.fetch(cores, :cor1) - Procura se existe a chave e retorna {:ok, valorDaChave}
+{:ok, "Azul"}
+
+a imutabilidade é da estrutura, não do dado contido nela
+============================================
