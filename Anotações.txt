@@ -36,3 +36,26 @@ iex(17)> Map.fetch(cores, :cor1) - Procura se existe a chave e retorna {:ok, val
 
 a imutabilidade é da estrutura, não do dado contido nela
 ============================================
+defmodule Fatura.Conta do
+    defstruct fatura: nil, vencimento: nil
+end
+
+iex(1)> luz = %Fatura.Conta{fatura: "Luz", vencimento: 10}
+%Fatura.Conta{fatura: "Luz", vencimento: 10}
+iex(2)> luz
+%Fatura.Conta{fatura: "Luz", vencimento: 10}
+iex(3)> is_map(luz)
+true
+iex(5)> is_map(%Fatura.Conta{})
+true
+iex(6)> luz.__struct__
+Fatura.Conta
+
+===========================
+Aula 19
+
+atribuindo indices a listas, no caso um mapa passado
+(lista de faturas, indice desejado)
+Enum.with_index(bills)
+|> Enum.at(index)
+

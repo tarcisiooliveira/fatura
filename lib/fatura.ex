@@ -27,10 +27,17 @@ defmodule Fatura do
   end
 
   @doc """
-    A função `criar_faturas` recebe duas listas de faturas e vencimentos e retorna 
-    uma estrutura de Fatura.Conta
+    A função `criar_faturas` recebe duas listas de faturas e vencimentos e retorna uma estrutura de `Fatura.Conta`
       ## Examples
-         
+        Fatura.criar_faturas(["Telefone", "Luz", "Agua"], [5,9])
+        [
+        %Fatura.Conta{fatura: "Telefone", vencimento: 5},
+        %Fatura.Conta{fatura: "Luz", vencimento: 5},
+        %Fatura.Conta{fatura: "Agua", vencimento: 5},
+        %Fatura.Conta{fatura: "Telefone", vencimento: 9},
+        %Fatura.Conta{fatura: "Luz", vencimento: 9},
+        %Fatura.Conta{fatura: "Agua", vencimento: 9}
+        ]
   """
   def criar_faturas(faturas, vencimentos) do
     for vencimento <- vencimentos, fatura <- faturas do
@@ -40,23 +47,31 @@ defmodule Fatura do
 
   @doc """
     Ao receber uma lista de faturas, entrega ordenada.
-      ## Examples
-        iex> Fatura.ordenar_fatura(["Telefone", "Luz", "Agua"])
-        ["Agua", "Luz", "Telefone"]
+        ## Examples
+          iex> listbill = Fatura.criar_faturas(["Telefone", "Luz", "Agua"], [5,9])      
+          iex> Fatura.sort_bill(listbill)
+          [
+            %Fatura.Conta{fatura: "Agua", vencimento: 5},
+            %Fatura.Conta{fatura: "Agua", vencimento: 9},
+            %Fatura.Conta{fatura: "Luz", vencimento: 5},
+            %Fatura.Conta{fatura: "Luz", vencimento: 9},
+            %Fatura.Conta{fatura: "Telefone", vencimento: 5},
+            %Fatura.Conta{fatura: "Telefone", vencimento: 9}
+          ]
   """
-  def ordenar_fatura(faturas) do
-    Enum.sort(faturas)
+  def sort_bill(bill) do
+    Enum.sort(bill)
   end
 
   @doc """
     Procura sem existe uma `fatura` em uma lista de `faturas`
 
       ## Examples
-        iex> Fatura.fatura_existe?(["Telefone", "Luz", "Agua"],"Luz")
+        iex> Fatura.criar_faturas(["Telefone", "Luz", "Agua"], [5,9]) |> Fatura.fatura_existe?(%Fatura.Conta{fatura: "Agua", vencimento: 9})
         true
-
-        iex> Fatura.fatura_existe?(["Telefone", "Luz", "Agua"],"internet")
-        false
+        iex> fatura = Fatura.criar_faturas(["Telefone", "Luz", "Agua"], [5,9])
+        iex> Fatura.fatura_existe?(fatura, %Fatura.Conta{fatura: "Telefone", vencimento: 5} )
+        true
 
   """
   def fatura_existe?(faturas, fatura) do
@@ -77,8 +92,19 @@ defmodule Fatura do
   end
 
   @doc """
-      Quando encontrar uma fatura
-        ## Examples
+    Remove a `fatura` passada no `index`
+    Remove `bill` past in `index`
+      ## Exemples
+        iex>Enum.split([1,2,3,4,5],1)
+        {[1], [2, 3, 4, 5]}
+  """
+  def pay_bill(bill,index) do
+    Enum.split(bill,index)
+  end
+
+  @doc """
+    Quando encontrar uma fatura
+      ## Examples
           iex>  arquivo=Fatura.criar_fatura(["Telefone", "Luz", "Agua"])
           iex>  Fatura.save("bill_to_pay",arquivo)
           :ok
@@ -93,14 +119,33 @@ defmodule Fatura do
   """
   def loadfile(filename) do
     {status, binary} = File.read(filename)
-
     case status do
       :ok -> printbinaryfile(binary)
       :error -> "File no found"
     end
   end
 
-  defp printbinaryfile(file) do
+  @doc """
+      Receive `file_name` and print all data.
+        ## Exemples
+         
+          
+  """
+  def printbinaryfile(file) do
     :erlang.binary_to_term(file)
+  end
+  
+
+  @doc """
+    Access list bills by index
+      ##Example
+        iex> Fatura.acess_bill_by_index(Fatura.criar_faturas(["Telefone", "Luz", "Agua"], [5,9]),3)
+        {%Fatura.Conta{fatura: "Telefone", vencimento: 9}, 3}
+        iex> Fatura.acess_bill_by_index(Fatura.criar_faturas(["Telefone", "Luz", "Agua"], [5,9]),2)
+        {%Fatura.Conta{fatura: "Agua", vencimento: 5}, 2}
+  """
+  def acess_bill_by_index(bills, index) do
+    Enum.with_index(bills)
+    |> Enum.at(index)
   end
 end
