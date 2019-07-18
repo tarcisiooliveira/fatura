@@ -15,6 +15,8 @@ defmodule FaturaTest do
       %Fatura.Conta{fatura: "Telefone", vencimento: 9},
       %Fatura.Conta{fatura: "Luz", vencimento: 9},
       ]
+
+
   end
 
   test "deve ordenar uma lista de faturas" do
