@@ -20,7 +20,7 @@ defmodule Fatura do
         ["Telefone", "Luz", "Agua"]
 
         iex> Fatura.criar_fatura("bola")
-        "bola"  
+        "bola"
   """
   def criar_fatura(fatura) do
     fatura
@@ -29,7 +29,7 @@ defmodule Fatura do
   @doc """
     A função `criar_faturas` recebe duas listas de faturas e vencimentos e retorna uma estrutura de `Fatura.Conta`
       ## Examples
-        Fatura.criar_faturas(["Telefone", "Luz", "Agua"], [5,9])
+        iex>Fatura.criar_faturas(["Telefone", "Luz", "Agua"], [5,9])
         [
         %Fatura.Conta{fatura: "Telefone", vencimento: 5},
         %Fatura.Conta{fatura: "Luz", vencimento: 5},
@@ -39,16 +39,23 @@ defmodule Fatura do
         %Fatura.Conta{fatura: "Agua", vencimento: 9}
         ]
   """
+
   def criar_faturas(faturas, vencimentos) do
     for vencimento <- vencimentos, fatura <- faturas do
-      %Fatura.Conta{vencimento: vencimento, fatura: fatura }
+      %Fatura.Conta{vencimento: vencimento, fatura: fatura}
     end
+  end
+
+  def inicio() do
+    lista_faturas = Fatura.criar_faturas(["Telefone", "Luz", "Agua"], [5, 9])
+    nova_lista = lista_faturas ++ [%Fatura.Conta{fatura: "Celular", vencimento: 3}]
+    Enum.filter(nova_lista, &(&1.fatura == "Luz"))
   end
 
   @doc """
     Ao receber uma lista de faturas, entrega ordenada.
         ## Examples
-          iex> listbill = Fatura.criar_faturas(["Telefone", "Luz", "Agua"], [5,9])      
+          iex> listbill = Fatura.criar_faturas(["Telefone", "Luz", "Agua"], [5,9])
           iex> Fatura.sort_bill(listbill)
           [
             %Fatura.Conta{fatura: "Agua", vencimento: 5},
@@ -72,7 +79,6 @@ defmodule Fatura do
         iex> fatura = Fatura.criar_faturas(["Telefone", "Luz", "Agua"], [5,9])
         iex> Fatura.fatura_existe?(fatura, %Fatura.Conta{fatura: "Telefone", vencimento: 5} )
         true
-
   """
   def fatura_existe?(faturas, fatura) do
     # question symbol means how will return a boolena value
@@ -98,8 +104,8 @@ defmodule Fatura do
         iex>Enum.split([1,2,3,4,5],1)
         {[1], [2, 3, 4, 5]}
   """
-  def pay_bill(bill,index) do
-    Enum.split(bill,index)
+  def pay_bill(bill, index) do
+    Enum.split(bill, index)
   end
 
   @doc """
@@ -110,7 +116,7 @@ defmodule Fatura do
           :ok
           iex>  Fatura.loadfile("bill_to_pay")
           ["Telefone", "Luz", "Agua"]
-          
+
           iex>  arquivo=Fatura.criar_fatura(["Telefone", "Luz", "Agua"])
           iex>  Fatura.save("bill_to_pay",arquivo)
           :ok
@@ -119,6 +125,7 @@ defmodule Fatura do
   """
   def loadfile(filename) do
     {status, binary} = File.read(filename)
+
     case status do
       :ok -> printbinaryfile(binary)
       :error -> "File no found"
@@ -128,13 +135,12 @@ defmodule Fatura do
   @doc """
       Receive `file_name` and print all data.
         ## Exemples
-         
-          
+
+
   """
   def printbinaryfile(file) do
     :erlang.binary_to_term(file)
   end
-  
 
   @doc """
     Access list bills by index
