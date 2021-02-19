@@ -3,8 +3,13 @@ defmodule FaturaTest do
   doctest Fatura
 
   test "deve criar uma lista de fatura estatica" do
-    faturas = Fatura.criar_fatura(["Telefone", "Luz", "Agua"])
-    assert faturas == ["Telefone", "Luz", "Agua"]
+    faturas = Fatura.criar_faturas(["Telefone", "Luz"], [5,9])
+    assert faturas == [
+      %Fatura.Conta{fatura: "Telefone", vencimento: 5},
+      %Fatura.Conta{fatura: "Luz", vencimento: 5},
+      %Fatura.Conta{fatura: "Telefone", vencimento: 9},
+      %Fatura.Conta{fatura: "Luz", vencimento: 9},
+      ]
   end
 
   test "deve criar uma lista de faturas dinamica" do
